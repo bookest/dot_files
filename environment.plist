@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+  <dict>
+    <key>PATH</key>
+    <string>/Users/grim/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/X11R6/bin:/opt/local/bin</string>
+    <key>MANPATH</key>
+    <string>/Users/grim/man:/usr/local/share/man:/usr/share/man:/usr/X11R6/man:/opt/local/man</string>
+    <key>INFOPATH</key>
+    <string>/usr/share/info:/opt/local/share/man</string>
+    <key>CVS_RSH</key>
+    <string>ssh</string>
+    <key>LANG</key>
+    <string>C</string>
+  </dict>
+</plist>
+
