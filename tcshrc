@@ -1,6 +1,0 @@
-
-if ({ test -t 0 }) then
-  echo "Interactive!"
-endif
-
-
