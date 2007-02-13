@@ -1,0 +1,6 @@
+
+XTerm*Background: black
+XTerm*Foreground: white
+XTerm*PointerColor: white
+XTerm*PointerColorBackground: black 
+XTerm*termName: xterm-color
