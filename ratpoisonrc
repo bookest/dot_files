@@ -1,0 +1,13 @@
+### -*- ratpoisonrc -*-
+
+bind o other
+# lock the same as screen
+bind C-x exec xscreensaver-command -lock
+bind N nextscreen
+bind P prevscreen
+
+exec xscreensaver -nosplash
+exec xterm
+
+alias emacs exec emacs
+alias firefox exec firefox
