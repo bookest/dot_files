@@ -1,2 +1,2 @@
-# let eshell use screen
-acladd :window:
+acladd :window: # let eshell use screen
+bind o other

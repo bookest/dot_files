@@ -1,48 +1,52 @@
-### -*- shell-script-mode -*-
+### -*- shell-script -*-
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
 export CDPATH=".:~"
 export CVS_RSH=ssh
 export HISTIGNORE="&:mutt:[bf]g:exit"
+export INPUTRC=${HOME}/.inputrc
+export PAGER=less
 export LESS="XR"
 export PERL5LIB=${HOME}/lib/perl5
+export RUBYOPT=rubygems
 export RI="-f ansi"
 
-# from The (Almost) Perfect Backspace Solution
-stty erase `tput kbs`
+if [ ! -z $TERM -a $TERM != 'dumb' ]; then
+   # from The (Almost) Perfect Backspace Solution
+    stty erase `tput kbs`
 
-### prompt fancyness
-function prompt_char() {
-    local char
+   ### prompt fanciness
+    function prompt_char() {
+        local char='>'
+        [ $(id -g] -eq 0 ] && char='#'        
+        echo -n $char
+    }
 
-    if [ $(id -g) -ne 0 ]; then
-	char='>'
-    else
-	char='#'
-    fi
-    
-    echo -n $char
-}
+    function prompt() {
+        local GREEN="\[\033[0;32m\]"
+        local MAGENTA="\[\033[0;35m\]"
+        local RED="\[\033[0;31m\]"
+        local YELLOW="\[\033[0;33m\]"
+        local NOCOLOR="\[\033[0m\]"
 
-function prompt() {
-    local GREEN="\[\033[0;32m\]"
-    local MAGENTA="\[\033[0;35m\]"
-    local RED="\[\033[0;31m\]"
-    local YELLOW="\[\033[0;33m\]"
-    local NOCOLOR="\[\033[0m\]"
+        local HOST_COLOR=$RED
 
-    local HOST_COLOR=$RED
+        local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
 
-    local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
+        if [ $SSH_IP ]; then
+	    HOST_COLOR=$MAGENTA
+        fi
 
-    if [ $SSH_IP ]; then
-	HOST_COLOR=$MAGENTA
-    fi
+        echo "$GREEN[$NOCOLOR\t$GREEN]$NOCOLOR $YELLOW{$NOCOLOR\u@$HOST_COLOR\h$NOCOLOR:\w$YELLOW}$NOCOLOR \$(prompt_char) "
+    }
 
-    echo "$GREEN[$NOCOLOR\t$GREEN]$NOCOLOR $YELLOW{$NOCOLOR\u@$HOST_COLOR\h$NOCOLOR:\w$YELLOW}$NOCOLOR \$(prompt_char) "
-}
-
-export PS1=$(prompt)
-export PS2='->'
+    export PS1=$(prompt)
+    export PS2='-> '
+fi
 
 set -o emacs
 set -o ignoreeof
@@ -53,6 +57,8 @@ for option in $OPTIONS; do
 done
 unset OPTIONS
 
+alias la="ls -a"
+alias ll="ls -l"
 alias cl="clear"
 alias h="history"
 alias jobs="jobs -l"
@@ -83,7 +89,11 @@ case $OSTYPE in
 	alias top="top -u"
 	;;
     linux*)
-	alias grep="grep --color=auto"
+        # use color if grep supports it...
+        if grep --help | grep -- --color &> /dev/null; then
+            export GREP_OPTIONS='--color=auto'
+        fi
+
 	;;
 esac
 

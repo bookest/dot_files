@@ -1,6 +1,10 @@
 
 XTerm*Background: black
 XTerm*Foreground: white
+XTerm*scrollBar: false
 XTerm*PointerColor: white
 XTerm*PointerColorBackground: black 
 XTerm*termName: xterm-color
+
+emacs*Background: black
+emacs*Foreground: white
