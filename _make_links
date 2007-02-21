@@ -45,9 +45,9 @@ if [ "$DEBUG" = "yes" ]; then
     echo
 fi
 
-debug cd $DOT_DIR
+cd $DOT_DIR
 
-for file in [^_#]*; do
+for file in `ls | egrep -v ^\(_\|\#\)`; do
     dest=${HOME}/.${file}
 
     if [ -L $dest ]; then
