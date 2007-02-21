@@ -1,0 +1,63 @@
+#! /bin/sh
+
+DOT_DIR=${HOME}/.dot_files
+
+die() {
+    echo 1>&2 "$*"
+    exit 1
+}
+
+verbose () {
+    [ "$VERBOSE" = "yes" ] && echo "$@"    
+}
+
+debug() {
+    verbose "$@"
+    [ -z "$DEBUG" ] && "$@"
+}
+
+args=`getopt dv $*`
+if [ $? != 0 ]; then
+    die "Usage: $0 [-d] [-v]"
+fi
+set -- $args
+
+for arg in $args; do
+    case "$arg" in
+        -d)
+            DEBUG=yes
+            VERBOSE=yes
+            shift
+            ;;
+        -v)
+            VERBOSE=yes
+            shift
+            ;;
+        --)
+            shift
+            break
+            ;;
+    esac
+done
+
+if [ "$DEBUG" = "yes" ]; then
+    echo "# Debug Mode: no commands will be run."
+    echo
+fi
+
+debug cd $DOT_DIR
+
+for file in [^_#]*; do
+    dest=${HOME}/.${file}
+
+    if [ -L $dest ]; then
+        verbose "# ${dest} is already a symlink... skipping."
+        continue
+    fi
+    
+    if [ -e $dest ]; then
+        debug mv $dest ${dest}.bak
+    fi
+
+    debug ln -s ${DOT_DIR}/$file $dest
+done
