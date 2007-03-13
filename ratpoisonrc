@@ -8,6 +8,8 @@ bind P prevscreen
 
 exec xscreensaver -nosplash
 exec xterm
+exec xmodmap ~/.xmodmaprc
+exec xsetroot -solid black
 
 alias emacs exec emacs
 alias firefox exec firefox
