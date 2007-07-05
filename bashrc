@@ -127,6 +127,11 @@ function pmversion() {
     perl -e "require $1; print $1->VERSION, \"\\n\""
 }
 
+function ipsort() {
+    ## DWIM sort of IP addresses. from http://madboa.com/geek/sort-addr
+    sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 "$@"
+}
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion /sw/etc/bash_completion"
 for bash_completion in $locations; do
