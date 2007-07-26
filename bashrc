@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export CDPATH=".:~"
+export CDPATH=".:~:${HOME}/dev"
 export CVS_RSH=ssh
 export HISTIGNORE="&:mutt:[bf]g:exit"
 export INPUTRC=${HOME}/.inputrc
@@ -52,7 +52,7 @@ fi
 set -o emacs
 set -o ignoreeof
 
-OPTIONS="extglob progcomp cdspell cmdhist checkwinsize histreedit histverify lithist"
+OPTIONS="extglob progcomp cdspell cmdhist checkwinsize histappend histreedit histverify lithist"
 for option in $OPTIONS; do
     shopt -s $option
 done
