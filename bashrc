@@ -12,6 +12,7 @@ export INPUTRC=${HOME}/.inputrc
 export PAGER=less
 export LESS="XR"
 export PERL5LIB=${HOME}/lib/perl5
+export PYTHONPAHT=${HOME}/lib/python
 export RUBYOPT=rubygems
 export RI="-f ansi"
 
