@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export CDPATH=".:~:${HOME}/dev"
+export CDPATH=".:~:${HOME}/dev:${HOME}/work"
 export CVS_RSH=ssh
 export HISTIGNORE="&:mutt:[bf]g:exit"
 export INPUTRC=${HOME}/.inputrc
@@ -134,10 +134,11 @@ function ipsort() {
 }
 
 ## setup bash completions if we can find it.
-locations="/etc/bash_completion /opt/local/etc/bash_completion /sw/etc/bash_completion"
-for bash_completion in $locations; do
-    if [ -f $bash_completion ]; then
-	. $bash_completion
+locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
+for location in $locations; do
+    if [ -r $location ]; then
+        . $location
+        break
     fi
 done
-unset locations
+unset locations location
