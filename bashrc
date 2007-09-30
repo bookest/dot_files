@@ -5,7 +5,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export CDPATH=".:~:${HOME}/dev:${HOME}/work"
 export CVS_RSH=ssh
 export HISTIGNORE="&:mutt:[bf]g:exit"
 export INPUTRC=${HOME}/.inputrc
@@ -15,6 +14,8 @@ export PERL5LIB=${HOME}/lib/perl5
 export PYTHONPATH=${HOME}/lib/python
 export RUBYOPT=rubygems
 export RI="-f ansi"
+
+CDPATH=".:~:${HOME}/devel:${HOME}/work"
 
 if [ ! -z $TERM -a $TERM != 'dumb' ]; then
     # from The (Almost) Perfect Backspace Solution
