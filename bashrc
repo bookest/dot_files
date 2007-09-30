@@ -126,7 +126,7 @@ function cprove() {
 }
 
 function pmversion() {
-    perl -e "require $1; print $1->VERSION, \"\\n\""
+    perl -le "require $1; print $1->VERSION"
 }
 
 function ipsort() {
