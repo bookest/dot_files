@@ -1,2 +1,6 @@
+defescape ^Tt
+
 acladd :window: # let eshell use screen
 bind o other
+
+
