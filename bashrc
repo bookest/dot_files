@@ -121,7 +121,7 @@ function hgrep () {
 
 function cprove() {
     cover -delete
-    PERL5OPT=-MDevel::Cover prove "$*"
+    PERL5OPT="-MDevel::Cover" prove "$@"
     cover
 }
 
