@@ -1,6 +1,11 @@
-defescape ^Tt
+startup_message off
+autodetach on
+
+defscrollback 10000
+escape ^Tt
 
 acladd :window: # let eshell use screen
+
 bind o other
 
 
