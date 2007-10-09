@@ -134,6 +134,18 @@ function ipsort() {
     sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 "$@"
 }
 
+if which rpm2cpio >& /dev/null; then
+    function lsrpm () {
+        rpm2cpio $1 | cpio -t
+    }
+
+    function xrpm () {
+        local pkg=$1
+        shift
+        rpm2cpio $pkg | cpio -ivd "$@"
+    }
+fi
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
 for location in $locations; do
