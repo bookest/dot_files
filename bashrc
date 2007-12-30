@@ -146,6 +146,11 @@ if which rpm2cpio >& /dev/null; then
     }
 fi
 
+function dired() {
+    local dir=${1:-$PWD}
+    emacsclient -n -e "(dired \"$dir\")"
+}
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
 for location in $locations; do
