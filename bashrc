@@ -145,6 +145,10 @@ function dired() {
     emacsclient -n -e "(dired \"$dir\")"
 }
 
+function ediff() {
+    emacsclient -n -e "(ediff \"$1\" \"$2\")"
+}
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
 for location in $locations; do
