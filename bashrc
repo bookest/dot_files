@@ -70,12 +70,6 @@ alias rm="rm -i"
 ##OS specific configuration
 case $OSTYPE in
     darwin*)
-	## use fink if it's installed
-	FINKINIT=/sw/bin/init.sh
-	if [ -e $FINKINIT ]; then
-	    . $FINKINIT
-	fi
-
 	## use darwin ports if it's here
 	if [ -d /opt/local/bin ]; then
 	    export PATH=/opt/local/bin:$PATH
