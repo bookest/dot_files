@@ -156,6 +156,19 @@ function dired() {
     emacsclient -n -e "(dired \"$dir\")"
 }
 
+function export-to-emacs() {
+    code=$(echo '(progn'
+        for var in "$@"; do
+            echo "(setenv \"$var\" \"${!var}\")"
+        done
+        echo ')')
+    emacsclient -e "$code" 1>/dev/null
+}
+
+function emacs-ssh-agent () {
+    export-to-emacs SSH_AGENT_PID SSH_AUTH_SOCK
+}
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
 for location in $locations; do
