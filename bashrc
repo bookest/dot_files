@@ -140,6 +140,17 @@ if which rpm2cpio >& /dev/null; then
     }
 fi
 
+function cleanenv() {
+    /usr/bin/env -i PATH=/usr/bin:/bin:/usr/X11R6/bin:/usr/sbin:/sbin \
+                    HOME=$HOME \
+                    TERM=$TERM \
+                    "$@"
+}
+
+function rpmbuild() {
+    cleanenv /usr/bin/rpmbuild "$@"
+}
+
 function dired() {
     local dir=${1:-$PWD}
     emacsclient -n -e "(dired \"$dir\")"
