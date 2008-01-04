@@ -22,12 +22,6 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
     stty erase `tput kbs`
     
     ### prompt fanciness
-    function prompt_char() {
-        local char='>'
-        [ $(id -g) -eq 0 ] && char='#'        
-        echo -n $char
-    }
-
     function prompt() {
         local GREEN="\[\033[0;32m\]"
         local MAGENTA="\[\033[0;35m\]"
