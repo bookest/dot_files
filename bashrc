@@ -22,12 +22,6 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
     stty erase `tput kbs`
     
     ### prompt fanciness
-    function prompt_char() {
-        local char='>'
-        [ $(id -g) -eq 0 ] && char='#'        
-        echo -n $char
-    }
-
     function prompt() {
         local GREEN="\[\033[0;32m\]"
         local MAGENTA="\[\033[0;35m\]"
@@ -140,6 +134,17 @@ if which rpm2cpio >& /dev/null; then
     }
 fi
 
+function cleanenv() {
+    /usr/bin/env -i PATH=/usr/bin:/bin:/usr/X11R6/bin:/usr/sbin:/sbin \
+                    HOME=$HOME \
+                    TERM=$TERM \
+                    "$@"
+}
+
+function rpmbuild() {
+    cleanenv /usr/bin/rpmbuild "$@"
+}
+
 function dired() {
     local dir=${1:-$PWD}
     emacsclient -n -e "(dired \"$dir\")"
@@ -147,6 +152,19 @@ function dired() {
 
 function ediff() {
     emacsclient -n -e "(ediff \"$1\" \"$2\")"
+}
+
+function export-to-emacs() {
+    code=$(echo '(progn'
+        for var in "$@"; do
+            echo "(setenv \"$var\" \"${!var}\")"
+        done
+        echo ')')
+    emacsclient -e "$code" 1>/dev/null
+}
+
+function emacs-ssh-agent () {
+    export-to-emacs SSH_AGENT_PID SSH_AUTH_SOCK
 }
 
 ## setup bash completions if we can find it.
