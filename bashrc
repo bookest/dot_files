@@ -167,6 +167,10 @@ function emacs-ssh-agent () {
     export-to-emacs SSH_AGENT_PID SSH_AUTH_SOCK
 }
 
+function nth() {
+    awk "{ print \$$1 }"
+}
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
 for location in $locations; do
