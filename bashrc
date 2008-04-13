@@ -23,7 +23,7 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
 
     _parse_branch() {
         type git >& /dev/null || return
-        git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+        git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
     }
     
     ### prompt fanciness
@@ -42,10 +42,10 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
             HOST_COLOR=$MAGENTA
         fi
         
-        echo "$GREEN[$NOCOLOR\!$GREEN]$NOCOLOR " \
-             "$GREEN{$NOCOLOR\t$GREEN}$NOCOLOR " \
-             "$YELLOW<$NOCOLOR\u@$HOST_COLOR\h$NOCOLOR:\w$YELLOW>" \
-             "${GREEN}\$(_parse_branch)${NOCOLOR} \$ "
+        echo "${GREEN}[${NOCOLOR}\!${GREEN}]${NOCOLOR}" \
+             "${GREEN}{${NOCOLOR}\t${GREEN}}${NOCOLOR}" \
+             "${YELLOW}<${NOCOLOR}\u@${HOST_COLOR}\h${NOCOLOR}:\w${YELLOW}>" \
+             "${GREEN}\$(_parse_branch)${NOCOLOR}\$ "
     }
     
     export PS1=$(prompt)
