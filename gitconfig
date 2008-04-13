@@ -7,5 +7,6 @@
 	tool = emerge
 [alias]
 	ci = commit
+	co = checkout
 [user]
 	name = Christopher Grim
