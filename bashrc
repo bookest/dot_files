@@ -61,6 +61,11 @@ alias jobs="jobs -l"
 alias mv="mv -i"
 alias rm="rm -i"
 
+# use color if grep supports it...
+if grep --help | grep -- --color &> /dev/null; then
+    export GREP_OPTIONS='--color=auto'
+fi
+
 ##OS specific configuration
 case $OSTYPE in
     darwin*)
@@ -77,13 +82,6 @@ case $OSTYPE in
         export COMMAND_MODE='unix2003' # no legacy mode on leopard
 
         alias top="top -u"
-        ;;
-    linux*)
-        # use color if grep supports it...
-        if grep --help | grep -- --color &> /dev/null; then
-            export GREP_OPTIONS='--color=auto'
-        fi
-
         ;;
 esac
 
