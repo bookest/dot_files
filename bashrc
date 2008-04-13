@@ -21,13 +21,13 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
     # from The (Almost) Perfect Backspace Solution
     stty erase `tput kbs`
 
-    _parse_branch() {
+    _parse_branch () {
         type git >& /dev/null || return
         git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
     }
     
     ### prompt fanciness
-    function prompt() {
+    _prompt () {
         local GREEN="\[\033[0;32m\]"
         local MAGENTA="\[\033[0;35m\]"
         local RED="\[\033[0;31m\]"
@@ -48,7 +48,7 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
              "${GREEN}\$(_parse_branch)${NOCOLOR}\$ "
     }
     
-    export PS1=$(prompt)
+    export PS1=$(_prompt)
     export PS2='-> '
 fi
 
@@ -97,70 +97,55 @@ esac
 
 # print PATH in a more readable format. handles any PATH like
 # variable, but defaults to PATH
-function lspath () {
+lspath () {
     local var=${1:-"PATH"}
     echo -e ${!var//:/\\n}
 }
 
 # clear history
-function hcl () {
+hcl () {
     size=$HISTSIZE
     export HISTSIZE=0
     export HISTSIZE=$size
 }
 
-function hgrep () {
-    history | grep "$*"
-}
-
-function cprove() {
+cprove() {
     cover -delete
     PERL5OPT="-MDevel::Cover" prove "$@"
     cover
 }
 
-function pmversion() {
-    perl -le "require $1; print $1->VERSION"
-}
+pmversion () { perl -le "require $1; print $1->VERSION"; }
 
-function ipsort() {
-    ## DWIM sort of IP addresses. from http://madboa.com/geek/sort-addr
-    sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 "$@"
-}
+ipsort () { sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 "$@"; }
 
 if which rpm2cpio >& /dev/null; then
-    function lsrpm () {
-        rpm2cpio $1 | cpio -t
-    }
+    lsrpm () { rpm2cpio $1 | cpio -t; }
 
-    function xrpm () {
+    xrpm () {
         local pkg=$1
         shift
         rpm2cpio $pkg | cpio -ivd "$@"
     }
 fi
 
-function cleanenv() {
+cleanenv () {
     /usr/bin/env -i PATH=/usr/bin:/bin:/usr/X11R6/bin:/usr/sbin:/sbin \
                     HOME=$HOME \
                     TERM=$TERM \
                     "$@"
 }
 
-function rpmbuild() {
-    cleanenv /usr/bin/rpmbuild "$@"
-}
+rpmbuild () { cleanenv /usr/bin/rpmbuild "$@"; }
 
-function dired() {
+dired () {
     local dir=${1:-$PWD}
     emacsclient -n -e "(dired \"$dir\")"
 }
 
-function ediff() {
-    emacsclient -n -e "(ediff \"$1\" \"$2\")"
-}
+ediff () { emacsclient -n -e "(ediff \"$1\" \"$2\")"; }
 
-function export-to-emacs() {
+export-to-emacs () {
     code=$(echo '(progn'
         for var in "$@"; do
             echo "(setenv \"$var\" \"${!var}\")"
@@ -169,13 +154,9 @@ function export-to-emacs() {
     emacsclient -e "$code" 1>/dev/null
 }
 
-function emacs-ssh-agent () {
-    export-to-emacs SSH_AGENT_PID SSH_AUTH_SOCK
-}
+emacs-ssh-agent () { export-to-emacs SSH_AGENT_PID SSH_AUTH_SOCK; }
 
-function nth() {
-    awk "{ print \$$1 }"
-}
+nth () { awk "{ print \$$1 }"; }
 
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
