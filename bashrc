@@ -34,7 +34,7 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
         local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
         
         if [ $SSH_IP ]; then
-	    HOST_COLOR=$MAGENTA
+            HOST_COLOR=$MAGENTA
         fi
         
         echo "$GREEN[$NOCOLOR\!$GREEN]$NOCOLOR $GREEN{$NOCOLOR\t$GREEN}$NOCOLOR $YELLOW<$NOCOLOR\u@$HOST_COLOR\h$NOCOLOR:\w$YELLOW>$NOCOLOR \$ "
@@ -64,27 +64,27 @@ alias rm="rm -i"
 ##OS specific configuration
 case $OSTYPE in
     darwin*)
-	## use darwin ports if it's here
-	if [ -d /opt/local/bin ]; then
-	    export PATH=/opt/local/bin:$PATH
-	fi
+        ## use darwin ports if it's here
+        if [ -d /opt/local/bin ]; then
+            export PATH=/opt/local/bin:$PATH
+        fi
 
-	if [ -d /opt/local/man ]; then
-	    export MANPATH=/opt/local/man:$MANPATH
-	fi
+        if [ -d /opt/local/man ]; then
+            export MANPATH=/opt/local/man:$MANPATH
+        fi
 
         export CLICOLOR='on'           # color ls 
         export COMMAND_MODE='unix2003' # no legacy mode on leopard
 
         alias top="top -u"
-	;;
+        ;;
     linux*)
         # use color if grep supports it...
         if grep --help | grep -- --color &> /dev/null; then
             export GREP_OPTIONS='--color=auto'
         fi
 
-	;;
+        ;;
 esac
 
 ### functions
