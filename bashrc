@@ -20,6 +20,11 @@ CDPATH=".:~:${HOME}/devel:${HOME}/work"
 if [ ! -z $TERM -a $TERM != 'dumb' ]; then
     # from The (Almost) Perfect Backspace Solution
     stty erase `tput kbs`
+
+    _parse_branch() {
+        type git >& /dev/null || return
+        git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    }
     
     ### prompt fanciness
     function prompt() {
@@ -30,14 +35,17 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
         local NOCOLOR="\[\033[0m\]"
         
         local HOST_COLOR=$RED
-        
+
         local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
         
         if [ $SSH_IP ]; then
             HOST_COLOR=$MAGENTA
         fi
         
-        echo "$GREEN[$NOCOLOR\!$GREEN]$NOCOLOR $GREEN{$NOCOLOR\t$GREEN}$NOCOLOR $YELLOW<$NOCOLOR\u@$HOST_COLOR\h$NOCOLOR:\w$YELLOW>$NOCOLOR \$ "
+        echo "$GREEN[$NOCOLOR\!$GREEN]$NOCOLOR " \
+             "$GREEN{$NOCOLOR\t$GREEN}$NOCOLOR " \
+             "$YELLOW<$NOCOLOR\u@$HOST_COLOR\h$NOCOLOR:\w$YELLOW>" \
+             "${GREEN}\$(_parse_branch)${NOCOLOR} \$ "
     }
     
     export PS1=$(prompt)
