@@ -73,10 +73,10 @@ case $OSTYPE in
 	    export MANPATH=/opt/local/man:$MANPATH
 	fi
 
-	# turn on color ls 
-	export CLICOLOR='on'
+        export CLICOLOR='on'           # color ls 
+        export COMMAND_MODE='unix2003' # no legacy mode on leopard
 
-	alias top="top -u"
+        alias top="top -u"
 	;;
     linux*)
         # use color if grep supports it...
