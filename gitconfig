@@ -1,0 +1,11 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[merge]
+	summary = true
+	tool = emerge
+[alias]
+	ci = commit
+[user]
+	name = Christopher Grim
