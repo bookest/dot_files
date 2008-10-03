@@ -68,6 +68,7 @@ alias h="history"
 alias jobs="jobs -l"
 alias mv="mv -i"
 alias rm="rm -i"
+alias g="git"
 
 # use color if grep supports it...
 if grep --help | grep -- --color &> /dev/null; then
