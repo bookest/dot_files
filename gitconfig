@@ -1,13 +1,13 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+        diff = auto
+        status = auto
+        branch = auto
 [merge]
-	summary = true
-	tool = emerge
+        summary = true
+        tool = emerge
 [alias]
-	ci = commit
-	co = checkout
+        ci = commit
+        co = checkout
         diffc = diff --cached
 [user]
-	name = Christopher Grim
+        name = Christopher Grim
