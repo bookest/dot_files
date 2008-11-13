@@ -159,6 +159,18 @@ emacs-ssh-agent () { export-to-emacs SSH_AGENT_PID SSH_AUTH_SOCK; }
 
 nth () { awk "{ print \$$1 }"; }
 
+# Display a growl notification using iTerm's magic escape sequence.
+growl() {
+    local msg="\\e]9;\n\n${*}\\007"
+    case $TERM in
+        screen*)
+            echo -ne '\eP'${msg}'\e\\' ;;
+        *)
+            echo -ne ${msg} ;;
+    esac
+    return
+}
+
 ## setup bash completions if we can find it.
 locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
 for location in $locations; do
