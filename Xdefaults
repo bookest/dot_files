@@ -6,5 +6,6 @@ XTerm*PointerColor: white
 XTerm*PointerColorBackground: black 
 XTerm*termName: xterm-color
 
-emacs*Background: black
-emacs*Foreground: white
+Emacs.Background: black
+Emacs.Foreground: white
+Emacs.font: Monospace-10
