@@ -4,7 +4,7 @@ require 'irb/completion'
 require 'pp'
 
 IRB.conf[:AUTO_INDENT] = true
-IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:PROMPT_MODE] = :SIMPLE unless ENV["TERM"] == "dumb"
 
 # Profile the provided block
 def profile
