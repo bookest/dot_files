@@ -172,11 +172,10 @@ growl() {
 }
 
 ## setup bash completions if we can find it.
-locations="/etc/bash_completion /opt/local/etc/bash_completion ${HOME}/.bash_completion"
-for location in $locations; do
-    if [ -r $location ]; then
-        . $location
+for f in {,/opt/local,${HOME}/local}/etc/bash_completion $HOME/.bash_completion; do
+    if [ -r $f ]; then
+        . $f
         break
     fi
 done
-unset locations location
+unset f
