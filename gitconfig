@@ -9,5 +9,6 @@
         ci = commit
         co = checkout
         diffc = diff --cached
+        rb = !grb
 [user]
         name = Christopher Grim
