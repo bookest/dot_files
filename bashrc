@@ -91,6 +91,7 @@ case $OSTYPE in
 
         export CLICOLOR='on'           # color ls 
         export COMMAND_MODE='unix2003' # no legacy mode on leopard
+        export GEM_HOME=$HOME/lib/ruby
 
         alias top="top -u"
         ;;
