@@ -14,3 +14,9 @@ def profile
   Profiler__.stop_profile
   Profiler__.print_profile($stdout)
 end
+
+# Shortcut to time the provided block
+def benchmark
+  require 'benchmark'
+  puts Benchmark.measure { yield }
+end
