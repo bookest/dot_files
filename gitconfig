@@ -10,5 +10,9 @@
         co = checkout
         diffc = diff --cached
         rb = !grb
+        who = shortlog -s -n
+        pt = push --tags origin master
+        pullr = pull --rebase
+
 [user]
         name = Christopher Grim
