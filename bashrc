@@ -15,7 +15,7 @@ export PYTHONPATH=${HOME}/lib/python
 export RUBYOPT=rubygems
 export RI="-f ansi"
 
-CDPATH=".:~:${HOME}/devel:${HOME}/work"
+CDPATH=".:~:${HOME}/projects:${HOME}/Documents"
 
 if [ ! -z $TERM -a $TERM != 'dumb' ]; then
     # from The (Almost) Perfect Backspace Solution
