@@ -124,8 +124,6 @@ pmversion () { perl -le "require $1; print $1->VERSION"; }
 ipsort () { sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4 "$@"; }
 
 if which rpm2cpio >& /dev/null; then
-    lsrpm () { rpm2cpio $1 | cpio -t; }
-
     xrpm () {
         local pkg=$1
         shift
