@@ -83,4 +83,6 @@ growl() {
 
 #load-keychain() { source ~/.keychain/${HOSTNAME}-sh; }
 
+# return true if the host is pingable.
+up? () { ping -c 1 -w 1 $1 >& /dev/null; }
 
