@@ -97,6 +97,10 @@ case $OSTYPE in
         ;;
 esac
 
+if [ -x "$HOME/bin/e" ]; then
+    export EDITOR="$HOME/bin/e -t"
+fi
+
 if [ -r ~/.bash_functions ]; then
     source ~/.bash_functions
 fi
