@@ -91,7 +91,6 @@ case $OSTYPE in
 
         export CLICOLOR='on'           # color ls 
         export COMMAND_MODE='unix2003' # no legacy mode on leopard
-        export GEM_HOME=$HOME/lib/ruby
 
         alias top="top -u"
         ;;
@@ -113,3 +112,8 @@ for f in {,/opt/local,${HOME}/local}/etc/bash_completion $HOME/.bash_completion;
     fi
 done
 unset f
+
+# setup rvm if we can find it.
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+    source "$HOME/.rvm/scripts/rvm"
+fi
