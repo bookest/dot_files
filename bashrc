@@ -117,3 +117,7 @@ unset f
 if [ -s "$HOME/.rvm/scripts/rvm" ]; then
     source "$HOME/.rvm/scripts/rvm"
 fi
+
+if [ -s "$HOME/.bash_local" ]; then
+    source "$HOME/.bash_local"
+fi
