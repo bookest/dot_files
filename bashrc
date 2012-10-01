@@ -97,7 +97,12 @@ case $OSTYPE in
 esac
 
 if [ -x "$HOME/bin/e" ]; then
-    export EDITOR="$HOME/bin/e -t"
+    export EDITOR=$HOME/bin/e
+
+    # Use terminal mode by default if we're on a remove host.
+    if [ ! -z "${SSH_CLIENT}" ]; then
+        export EDITOR="${EDITOR} -t"
+    fi
 fi
 
 if [ -r ~/.bash_functions ]; then
