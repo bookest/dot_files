@@ -71,7 +71,7 @@ alias rm="rm -i"
 alias g="git"
 
 # use color if grep supports it...
-if grep --help | grep -- --color &> /dev/null; then
+if grep --help 2>&1 | grep -- --color &> /dev/null; then
     export GREP_OPTIONS='--color=auto'
 fi
 
