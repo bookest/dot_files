@@ -118,11 +118,6 @@ for f in {,/opt/local,${HOME}/local}/etc/bash_completion $HOME/.bash_completion;
 done
 unset f
 
-# setup rvm if we can find it.
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-    source "$HOME/.rvm/scripts/rvm"
-fi
-
 if [ -s "$HOME/.bash_local" ]; then
     source "$HOME/.bash_local"
 fi
