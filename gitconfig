@@ -13,6 +13,10 @@
         who = shortlog -s -n
         pt = push --tags origin master
         pullr = pull --rebase
+        st = status -s
+        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --stat
+        ld = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" -p
 
 [user]
         name = Christopher Grim
