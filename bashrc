@@ -121,3 +121,7 @@ unset f
 if [ -s "$HOME/.bash_local" ]; then
     source "$HOME/.bash_local"
 fi
+
+if type rbenv >& /dev/null; then
+    eval "$(rbenv init -)"
+fi
