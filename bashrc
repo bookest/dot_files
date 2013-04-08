@@ -125,3 +125,7 @@ fi
 if type rbenv >& /dev/null; then
     eval "$(rbenv init -)"
 fi
+
+if type virtualenvwrapper.sh; then
+    source virtualenvwrapper.sh
+fi
