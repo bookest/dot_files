@@ -18,6 +18,6 @@
         ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --stat
         ld = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" -p
-
+        standup = !git log --since=yesterday --author=$(git config user.email) --oneline
 [user]
         name = Christopher Grim
