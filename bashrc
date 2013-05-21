@@ -69,6 +69,7 @@ alias jobs="jobs -l"
 alias mv="mv -i"
 alias rm="rm -i"
 alias g="git"
+alias be="bundle exec"
 
 # use color if grep supports it...
 if grep --help 2>&1 | grep -- --color &> /dev/null; then
