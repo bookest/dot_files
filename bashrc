@@ -131,3 +131,7 @@ fi
 if type virtualenvwrapper.sh >& /dev/null; then
     source virtualenvwrapper.sh
 fi
+
+if [ -x "${HOME}/.chefvm/bin/chefvm" ]; then
+    eval "$(${HOME}/.chefvm/bin/chefvm init -)"
+fi
