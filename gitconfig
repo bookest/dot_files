@@ -19,5 +19,6 @@
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --stat
         ld = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" -p
         standup = !git log --since=yesterday --author=$(git config user.email) --oneline
+        pb = !git push origin $(git rev-parse --abbrev-ref HEAD)
 [user]
         name = Christopher Grim
