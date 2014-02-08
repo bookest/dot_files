@@ -135,3 +135,7 @@ fi
 if [ -x "${HOME}/.chefvm/bin/chefvm" ]; then
     eval "$(${HOME}/.chefvm/bin/chefvm init -)"
 fi
+
+if [ -x "${HOME}/.cask/bin/cask" ]; then
+    export PATH="${HOME}/.cask/bin:$PATH"
+fi
