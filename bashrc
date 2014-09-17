@@ -144,3 +144,8 @@ export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 if [ -d "$GHC_DOT_APP" ]; then
     export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
+
+if [ -d "${HOME}/projects/go" ]; then
+    export GOPATH="${HOME}/projects/go"
+    export PATH="${PATH}:${GOPATH}/bin"
+fi
