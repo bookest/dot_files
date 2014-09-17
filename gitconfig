@@ -20,5 +20,7 @@
         ld = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" -p
         standup = !git log --since=yesterday --author=$(git config user.email) --oneline
         pb = !git push origin $(git rev-parse --abbrev-ref HEAD)
+        save = !git add -A && git commit -m 'SAVEPOINT'
+        cleanup = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
 [user]
         name = Christopher Grim
