@@ -120,6 +120,8 @@ for f in {,/opt/local,${HOME}/local}/etc/bash_completion $HOME/.bash_completion;
 done
 unset f
 
+complete -C aws_completer aws
+
 if [ -s "$HOME/.bash_local" ]; then
     source "$HOME/.bash_local"
 fi
