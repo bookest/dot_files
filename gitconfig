@@ -26,3 +26,5 @@
         name = Christopher Grim
 [push]
 	default = nothing
+[core]
+	editor = emacsclient
