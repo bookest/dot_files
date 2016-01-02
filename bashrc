@@ -55,11 +55,11 @@ fi
 set -o emacs
 set -o ignoreeof
 
-OPTIONS="extglob progcomp cdspell cmdhist checkwinsize histappend histreedit histverify lithist"
-for option in $OPTIONS; do
-    shopt -s $option
-done
-unset OPTIONS
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist histappend histreedit histverify lithist
+shopt -s extglob
+shopt -s progcomp
 
 alias la="ls -a"
 alias ll="ls -l"
