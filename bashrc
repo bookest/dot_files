@@ -151,3 +151,11 @@ if type stack >& /dev/null; then
     eval "$(stack --bash-completion-script "$(which stack)")"
     export PATH="${HOME}/.local/bin:${PATH}"
 fi
+
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+if which pyenv-virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)"
+fi
