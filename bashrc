@@ -80,17 +80,6 @@ fi
 ##OS specific configuration
 case $OSTYPE in
     darwin*)
-        ## use macports if it's here
-        for d in /opt/local $HOME/local; do
-            if [ -d $d/bin ]; then
-                export PATH=$d/bin:$PATH
-            fi
-
-            if [ -d $d/man ]; then
-                export MANPATH=$d/man:$MANPATH
-            fi
-        done
-
         export CLICOLOR='on'           # color ls
         export COMMAND_MODE='unix2003' # no legacy mode on leopard
 
