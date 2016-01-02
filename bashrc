@@ -112,7 +112,7 @@ if [ -r ~/.bash_functions ]; then
 fi
 
 ## setup bash completions if we can find it.
-for f in {,/opt/local,${HOME}/local}/etc/bash_completion $HOME/.bash_completion; do
+for f in {,/usr/local}/etc/bash_completion; do
     if [ -r $f ]; then
         . $f
         break
