@@ -17,15 +17,15 @@ export RI="-f ansi"
 
 CDPATH=".:~:${HOME}/projects:${HOME}/Documents"
 
-if [ ! -z $TERM -a $TERM != 'dumb' ]; then
+if [ ! -z "$TERM" ] && [ "$TERM" != 'dumb' ]; then
     # from The (Almost) Perfect Backspace Solution
-    stty erase `tput kbs`
+    stty erase "$(tput kbs)"
 
     _parse_branch () {
         type git >& /dev/null || return
         git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
     }
-    
+
     ### prompt fanciness
     _prompt () {
         local GREEN="\[\033[0;32m\]"
@@ -33,21 +33,21 @@ if [ ! -z $TERM -a $TERM != 'dumb' ]; then
         local RED="\[\033[0;31m\]"
         local YELLOW="\[\033[0;33m\]"
         local NOCOLOR="\[\033[0m\]"
-        
+
         local HOST_COLOR=$RED
 
-        local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
-        
-        if [ $SSH_IP ]; then
+        local SSH_IP=$(echo $SSH_CLIENT | awk '{ print $1 }')
+
+        if [ "$SSH_IP" ]; then
             HOST_COLOR=$MAGENTA
         fi
-        
+
         echo "${GREEN}[${NOCOLOR}\!${GREEN}]${NOCOLOR}" \
              "${GREEN}{${NOCOLOR}\t${GREEN}}${NOCOLOR}" \
              "${YELLOW}<${NOCOLOR}\u@${HOST_COLOR}\h${NOCOLOR}:\w${YELLOW}>" \
              "${GREEN}\$(_parse_branch)${NOCOLOR}\$ "
     }
-    
+
     export PS1=$(_prompt)
     export PS2='-> '
 fi
@@ -70,7 +70,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 alias g="git"
 alias be="bundle exec"
-alias ag="ag --pager=${PAGER:-less}"
+alias ag="ag --pager=\${PAGER:-less}"
 
 # use color if grep supports it...
 if grep --help 2>&1 | grep -- --color &> /dev/null; then
@@ -91,7 +91,7 @@ case $OSTYPE in
             fi
         done
 
-        export CLICOLOR='on'           # color ls 
+        export CLICOLOR='on'           # color ls
         export COMMAND_MODE='unix2003' # no legacy mode on leopard
 
         alias top="top -u"
