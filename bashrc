@@ -131,7 +131,7 @@ if [ -x "${HOME}/.cask/bin/cask" ]; then
     export PATH="${HOME}/.cask/bin:$PATH"
 fi
 
-if [ -d "${HOME}/projects/go" ]; then
+if [ -d "${HOME}/src/go" ]; then
     export GOPATH="${HOME}/projects/go"
     export PATH="${PATH}:${GOPATH}/bin"
 fi
