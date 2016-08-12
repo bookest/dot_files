@@ -152,3 +152,5 @@ fi
 if [ -e "${HOME}/.nvm/nvm.sh" ]; then
     . ${HOME}/.nvm/nvm.sh 2>/dev/null
 fi
+
+[ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
