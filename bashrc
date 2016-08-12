@@ -150,5 +150,5 @@ if which pyenv-virtualenv-init > /dev/null; then
 fi
 
 if [ -e "${HOME}/.nvm/nvm.sh" ]; then
-    . ${HOME}/.nvm/nvm.sh
+    . ${HOME}/.nvm/nvm.sh 2>/dev/null
 fi
