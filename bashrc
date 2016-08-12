@@ -154,3 +154,7 @@ if [ -e "${HOME}/.nvm/nvm.sh" ]; then
 fi
 
 [ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
+
+if [ -d ${HOME}/.cargo/bin ]; then
+    export PATH="${PATH}:${HOME}/.cargo/bin"
+fi
