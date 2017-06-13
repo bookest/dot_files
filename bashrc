@@ -45,7 +45,7 @@ if [ ! -z "$TERM" ] && [ "$TERM" != 'dumb' ]; then
         echo "${GREEN}[${NOCOLOR}\!${GREEN}]${NOCOLOR}" \
              "${GREEN}{${NOCOLOR}\t${GREEN}}${NOCOLOR}" \
              "${YELLOW}<${NOCOLOR}\u@${HOST_COLOR}\h${NOCOLOR}:\w${YELLOW}>" \
-             "${GREEN}\$(_parse_branch)${NOCOLOR}\$ "
+             "${GREEN}\$(_parse_branch)${NOCOLOR}\n\$ "
     }
 
     export PS1=$(_prompt)
