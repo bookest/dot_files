@@ -88,3 +88,8 @@ up? () { ping -c 1 -w 1 $1 >& /dev/null; }
 
 # reload keychain
 rk () { source ~/.keychain/$(hostname)-sh; }
+
+set-iterm-profile() { printf '\ePtmux;\e\e]1337;%s\007\e\\' "SetProfile=$1"; }
+
+solarized-dark() { set-iterm-profile "SolarizedDark"; }
+solarized-light() { set-iterm-profile "SolarizedLight"; }
