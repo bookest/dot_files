@@ -75,7 +75,7 @@ alias e="emacsclient --no-wait"
 
 # use color if grep supports it...
 if grep --help 2>&1 | grep -- --color &> /dev/null; then
-    export GREP_OPTIONS='--color=auto'
+    alias grep='grep --color=auto'
 fi
 
 ##OS specific configuration
