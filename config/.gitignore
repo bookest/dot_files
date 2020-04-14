@@ -1,0 +1,6 @@
+# I don't want to pull all of ~/.config in to git, so we ignore everything by
+# default...
+*
+# ...and explicitly add stuff we want to track:
+!nvim
+!.gitignore
