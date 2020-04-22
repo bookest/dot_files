@@ -32,4 +32,8 @@ set expandtab
 "rust
 let g:rustfmt_autosave = 1
 
+" Use jk for escape in insert mode to get around esc being on the Mac
+" TouchBar instead of a real key.
+inoremap jk <esc>
+
 filetype plugin indent on
