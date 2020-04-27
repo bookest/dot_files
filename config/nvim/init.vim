@@ -23,9 +23,6 @@ set background=light
 set nobackup
 set nowritebackup
 set noswapfile
-
-set number
-set relativenumber
 set hidden
 set signcolumn=yes
 
