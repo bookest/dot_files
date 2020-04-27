@@ -28,5 +28,5 @@
 [push]
 	default = nothing
 [core]
-	editor = emacsclient
+        editor = nvim
         excludesfile = ~/.gitignore.global
