@@ -72,6 +72,7 @@ alias g="git"
 alias be="bundle exec"
 alias ag="ag --pager=\${PAGER:-less}"
 alias e="emacsclient --no-wait"
+alias v="nvim"
 
 # use color if grep supports it...
 if grep --help 2>&1 | grep -- --color &> /dev/null; then
