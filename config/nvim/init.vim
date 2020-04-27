@@ -3,6 +3,7 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
