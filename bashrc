@@ -73,6 +73,8 @@ alias be="bundle exec"
 alias ag="ag --pager=\${PAGER:-less}"
 alias e="emacsclient --no-wait"
 alias v="nvim"
+alias vi="nvim"
+alias vrc="nvim ~/.config/nvim/init.vim"
 alias tmux="tmux -2"
 
 # use color if grep supports it...
