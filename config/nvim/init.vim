@@ -4,6 +4,7 @@ set nocompatible
 call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
