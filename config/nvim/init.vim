@@ -87,4 +87,6 @@ inoremap jk <esc>
 " Enable jk as escape in terminal mode as well.
 tnoremap jk <C-\><C-n>
 
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+
 filetype plugin indent on
