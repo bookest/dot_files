@@ -6,9 +6,10 @@ call plug#begin()
 Plug 'wikitopian/hardmode'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline',
 Plug 'vim-airline/vim-airline-themes'
 
@@ -74,6 +75,8 @@ nnoremap <silent> <leader>k :call CocAction('doHover')<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 "javascript
 let g:javascript_plugin_jsdoc = 1
