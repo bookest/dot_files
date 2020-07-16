@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline',
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vimwiki/vimwiki'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -84,6 +85,8 @@ let g:javascript_plugin_jsdoc = 1
 
 "rust
 let g:rustfmt_autosave = 1
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Use jk for escape in insert mode to get around esc being on the Mac
 " TouchBar instead of a real key.
