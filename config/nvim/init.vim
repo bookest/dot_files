@@ -54,9 +54,6 @@ set spell
 
 let mapleader = " "
 
-" Reformat paragraph
-nnoremap <leader>fp gqip
-
 nnoremap <silent> <C-p> :GFiles<cr>
 
 "TODO: Move coc business out to a separate file?
@@ -87,6 +84,8 @@ let g:javascript_plugin_jsdoc = 1
 let g:rustfmt_autosave = 1
 
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
 
 " Use jk for escape in insert mode to get around esc being on the Mac
 " TouchBar instead of a real key.
