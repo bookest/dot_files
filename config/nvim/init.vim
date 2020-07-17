@@ -85,6 +85,11 @@ let g:rustfmt_autosave = 1
 
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+command! -bang -nargs=* Notes
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'dir': '~/vimwiki'}), <bang>0)
+
 autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
 
 " Use jk for escape in insert mode to get around esc being on the Mac
