@@ -54,6 +54,11 @@ set spell
 
 let mapleader = " "
 
+" C-c doesn't play nice with CoC.
+inoremap <C-c> <Esc>
+nnoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
+
 nnoremap <silent> <C-p> :GFiles<cr>
 
 "TODO: Move coc business out to a separate file?
