@@ -1,4 +1,7 @@
 {
     "suggest.noselect": false,
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "eslint.run": "onSave",
+    "eslint.autoFixOnSave": true,
+    "eslint.quiet": true
 }
