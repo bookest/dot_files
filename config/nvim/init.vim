@@ -100,12 +100,6 @@ command! -bang -nargs=* Notes
 
 autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
 
-" Use jk for escape in insert mode to get around esc being on the Mac
-" TouchBar instead of a real key.
-inoremap jk <esc>
-" Enable jk as escape in terminal mode as well.
-tnoremap jk <C-\><C-n>
-
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 filetype plugin indent on
