@@ -100,6 +100,4 @@ command! -bang -nargs=* Notes
 
 autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
 
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-
 filetype plugin indent on
