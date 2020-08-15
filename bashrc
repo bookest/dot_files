@@ -78,6 +78,7 @@ alias vrc="nvim ~/.config/nvim/init.vim"
 alias tmux="tmux -2"
 alias t="todo.sh"
 alias G="nvim +G"
+alias x="exa --git"
 
 # use color if grep supports it...
 if grep --help 2>&1 | grep -- --color &> /dev/null; then
