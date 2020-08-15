@@ -62,6 +62,9 @@ inoremap <C-c> <Esc>
 nnoremap <C-c> <Esc>
 vnoremap <C-c> <Esc>
 
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-[> <C-\><C-n>
+
 nnoremap <silent> <C-p> :GFiles<cr>
 
 "TODO: Move coc business out to a separate file?
