@@ -44,7 +44,7 @@ set noswapfile
 set hidden
 set signcolumn=yes
 set updatetime=500
-set scrolloff=10
+set scrolloff=5
 set relativenumber
 set autoindent
 set smartindent
@@ -102,5 +102,8 @@ command! -bang -nargs=* Notes
   \   fzf#vim#with_preview({'dir': '~/vimwiki'}), <bang>0)
 
 autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
+
+" disable C-c k triggering Omnicomplete in sql files
+let g:omni_sql_no_default_maps = 1
 
 filetype plugin indent on
