@@ -96,10 +96,15 @@ let g:rustfmt_autosave = 1
 
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-command! -bang -nargs=* Notes
+command! -bang -nargs=* SearchNotes
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview({'dir': '~/vimwiki'}), <bang>0)
+
+command! -bang -nargs=* EditNote call fzf#vim#files('~/vimwiki', <bang>0)
+
+command! -bang -nargs=0 NewNote
+            \ call vimwiki#base#edit_file(":e", strftime('~/vimwiki/%F-%T.md'), "")
 
 autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
 
