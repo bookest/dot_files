@@ -55,6 +55,9 @@ set expandtab
 set spelllang=en_us
 set spell
 
+set undofile
+set undodir=~/.vim/undodir
+
 let mapleader = " "
 
 " C-c doesn't play nice with CoC.
