@@ -30,6 +30,8 @@ Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'iCyMind/NeoSolarized'
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 
 syntax enable
@@ -113,5 +115,23 @@ autocmd BufNewFile ~/vimwiki/*.md :silent 0r ~/vimwiki/template.md | normal! j$
 
 " disable C-c k triggering Omnicomplete in sql files
 let g:omni_sql_no_default_maps = 1
+
+let g:firenvim_config = {
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'always',
+        \ },
+    \ }
+\ }
+let fc = g:firenvim_config['localSettings']
+let fc['https?://*.google.com'] = { 'takeover': 'never', 'priority': 1 }
+
+autocmd BufEnter github.com_*.txt set filetype=markdown
 
 filetype plugin indent on
