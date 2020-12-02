@@ -131,6 +131,7 @@ let g:firenvim_config = {
 \ }
 let fc = g:firenvim_config['localSettings']
 let fc['https?://[^.]*\.google\.com'] = { 'takeover': 'never', 'priority': 1 }
+let fc['https?://google\.com'] = { 'takeover': 'never', 'priority': 1 }
 let fc['https?://[^.]*\.sumologic\.com'] = { 'takeover': 'never', 'priority': 1 }
 
 autocmd BufEnter github.com_*.txt set filetype=markdown
