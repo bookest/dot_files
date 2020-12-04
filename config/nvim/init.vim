@@ -36,7 +36,12 @@ call plug#end()
 
 syntax enable
 
-set background=light
+if trim(system('defaults read -g AppleInterfaceStyle')) == 'Dark'
+    set background=dark
+else
+    set background=light
+endif
+
 set termguicolors
 colorscheme NeoSolarized
 
