@@ -141,5 +141,6 @@ let fc['https?://[^.]*\.sumologic\.com'] = { 'takeover': 'never', 'priority': 1 
 
 autocmd BufEnter github.com_*.txt set filetype=markdown
 autocmd BufEnter app.mode.com_*.txt set filetype=sql
+autocmd BufEnter *_admin-airflow-trigger_*.txt set filetype=json
 
 filetype plugin indent on
