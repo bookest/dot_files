@@ -53,6 +53,7 @@ set signcolumn=yes
 set updatetime=500
 set scrolloff=5
 set relativenumber
+set number
 set autoindent
 set smartindent
 
